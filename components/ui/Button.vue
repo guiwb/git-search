@@ -25,7 +25,6 @@ button {
   border: none;
   border-radius: 4px;
   margin: 5px;
-  padding: 0 30px;
   height: 50px;
   transition: all 0.25s ease;
   font-size: 16px;
