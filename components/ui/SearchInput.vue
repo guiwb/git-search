@@ -3,7 +3,7 @@
     type="text"
     placeholder="Pesquisar..."
     :value="value"
-    @input="$emit('input')"
+    @input="(e) => $emit('input', e.target.value)"
   />
 </template>
 

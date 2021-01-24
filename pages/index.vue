@@ -2,16 +2,22 @@
   <main>
     <img src="/images/logo.svg" width="140px" alt="Github Logo" />
     <h1>GitSearch</h1>
-    <SearchInput />
+    <SearchInput v-model="textSearch" />
     <div class="row">
       <Button to="/users">Ver todos</Button>
-      <Button to="/users" color="secondary">Buscar</Button>
+      <Button :to="`/users/${textSearch}`" color="secondary">Buscar</Button>
     </div>
   </main>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      textSearch: '',
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
