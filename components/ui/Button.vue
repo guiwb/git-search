@@ -1,7 +1,7 @@
 <template>
-  <button :class="[color]" @click="$emit('click')">
+  <n-link :to="to" :class="[color]">
     <slot />
-  </button>
+  </n-link>
 </template>
 
 <script>
@@ -14,12 +14,16 @@ export default {
       default: 'primary',
       validator: (value) => ACCEPTED_COLORS.includes(value),
     },
+    to: {
+      type: [Object, String],
+      default: null,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-button {
+a {
   outline: none;
   color: white;
   border: none;
@@ -29,6 +33,9 @@ button {
   transition: all 0.25s ease;
   font-size: 16px;
   font-weight: 500;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
   cursor: pointer;
 
   &.primary {

@@ -4,8 +4,8 @@
     <h1>GitSearch</h1>
     <SearchInput />
     <div class="row">
-      <Button>Ver todos</Button>
-      <Button color="secondary">Buscar</Button>
+      <Button to="/users">Ver todos</Button>
+      <Button to="/users" color="secondary">Buscar</Button>
     </div>
   </main>
 </template>
@@ -33,7 +33,7 @@ main {
     width: 100%;
     display: flex;
 
-    button {
+    > a {
       flex: 1;
 
       &:first-child {
