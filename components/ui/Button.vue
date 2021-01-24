@@ -16,7 +16,7 @@ export default {
     },
     to: {
       type: [Object, String],
-      default: null,
+      required: true,
     },
   },
 }
