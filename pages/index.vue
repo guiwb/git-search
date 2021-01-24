@@ -1,7 +1,49 @@
 <template>
-  <div></div>
+  <main>
+    <img src="/images/logo.svg" width="140px" alt="Github Logo" />
+    <h1>GitSearch</h1>
+    <SearchInput />
+    <div class="row">
+      <Button>Ver todos</Button>
+      <Button color="secondary">Buscar</Button>
+    </div>
+  </main>
 </template>
 
 <script>
 export default {}
 </script>
+
+<style lang="scss" scoped>
+main {
+  height: 100vh;
+  width: 274px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .row {
+    width: 100%;
+    display: flex;
+
+    button {
+      flex: 1;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+</style>
