@@ -45,5 +45,9 @@ main {
       }
     }
   }
+
+  @media ($desktop) {
+    width: 420px;
+  }
 }
 </style>
