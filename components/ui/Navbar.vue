@@ -1,8 +1,6 @@
 <template>
   <nav>
-    <div class="comeback" @click="comeback">
-      <img src="/images/comeback.svg" height="15px" />
-    </div>
+    <img src="/images/comeback.svg" height="15px" @click="$router.back()" />
     <h1 v-text="title" />
   </nav>
 </template>
@@ -15,9 +13,6 @@ export default {
       required: true,
     },
   },
-  methods: {
-    comeback() {},
-  },
 }
 </script>
 
@@ -27,7 +22,7 @@ nav {
   align-items: center;
   height: 50px;
   border-bottom: 1px solid $gray200;
-  padding: 0 20px;
+  margin-bottom: 15px;
 
   h1 {
     font-size: 14px;
