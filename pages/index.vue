@@ -17,6 +17,11 @@ export default {
       textSearch: '',
     }
   },
+  head() {
+    return {
+      title: 'GitSearch',
+    }
+  },
 }
 </script>
 
