@@ -24,7 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 a {
-  outline: none;
   color: white;
   border: none;
   border-radius: 4px;
@@ -35,8 +34,6 @@ a {
   font-weight: 500;
   text-align: center;
   line-height: 50px;
-  text-decoration: none;
-  cursor: pointer;
 
   &.primary {
     background-color: $purple300;
