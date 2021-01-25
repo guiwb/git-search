@@ -26,7 +26,7 @@ nav {
   display: flex;
   align-items: center;
   height: 50px;
-  border-bottom: 1px solid $gray100;
+  border-bottom: 1px solid $gray200;
   padding: 0 20px;
 
   h1 {
