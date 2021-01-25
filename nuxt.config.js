@@ -36,8 +36,16 @@ export default {
     '@nuxtjs/stylelint-module',
   ],
 
+  eslint: {
+    cache: false,
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources'],
+  modules: ['@nuxtjs/style-resources', '@nuxt/http'],
+
+  http: {
+    baseURL: 'https://api.github.com/',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
