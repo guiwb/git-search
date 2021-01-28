@@ -26,12 +26,10 @@ export default {
   mounted() {
     this.fetchUsers()
 
-    document.addEventListener('scroll', () => {
-      const { scrollY, innerHeight } = window
-      const { offsetHeight } = document.documentElement
-
-      if (scrollY + innerHeight === offsetHeight) this.fetchUsers()
-    })
+    document.addEventListener('scroll', this.checkScroll)
+  },
+  destroyed() {
+    document.removeEventListener('scroll', this.checkScroll)
   },
   methods: {
     ...mapActions('users', ['fetchUsers']),
@@ -39,6 +37,12 @@ export default {
     searchUsers() {
       this.setSince(0)
       this.fetchUsers()
+    },
+    checkScroll() {
+      const { scrollY, innerHeight } = window
+      const { offsetHeight } = document.documentElement
+
+      if (scrollY + innerHeight === offsetHeight) this.fetchUsers()
     },
   },
 }
