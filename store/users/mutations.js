@@ -15,6 +15,8 @@ export default {
     state.users = [...state.users, ...removesExisting(payload)]
   },
   setTextSearch(state, payload) {
+    state.since = 0
+    state.page = 1
     state.textSearch = payload
   },
   setSince(state, payload) {

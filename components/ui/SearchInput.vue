@@ -2,17 +2,42 @@
   <input
     type="text"
     placeholder="Pesquisar..."
-    :value="value"
-    @input="(e) => $emit('input', e.target.value)"
+    :value="textSearch"
+    @input="input"
   />
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   props: {
-    value: {
-      type: String,
-      default: '',
+    withDebounce: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      timeout: null,
+    }
+  },
+  computed: {
+    ...mapState('users', ['textSearch']),
+  },
+  methods: {
+    ...mapMutations('users', ['setTextSearch']),
+
+    input(e) {
+      this.setTextSearch(e.target.value)
+      if (this.withDebounce) this.createDebounce()
+    },
+
+    createDebounce() {
+      if (this.timeout) clearTimeout(this.timeout)
+
+      if (this.textSearch.length < 4) return
+      this.timeout = setTimeout(() => this.$emit('search'), 1000)
     },
   },
 }

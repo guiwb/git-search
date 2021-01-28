@@ -1,7 +1,7 @@
 <template>
   <section>
     <Navbar :title="title" />
-    <SearchInput v-model="text" />
+    <SearchInput with-debounce @search="searchUsers" />
     <UsersList :users="users" />
   </section>
 </template>
@@ -13,8 +13,6 @@ export default {
   data() {
     return {
       title: 'Lista de usuários',
-      text: this.textSearch,
-      timeout: null,
     }
   },
   head() {
@@ -23,13 +21,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('users', ['textSearch', 'users']),
-  },
-  watch: {
-    text(newValue) {
-      if (!newValue) return this.resetUsers()
-      this.createDebounce()
-    },
+    ...mapState('users', ['users']),
   },
   mounted() {
     this.fetchUsers()
@@ -42,18 +34,11 @@ export default {
     })
   },
   methods: {
-    ...mapActions('users', ['fetchUsers', 'resetUsers']),
-    ...mapMutations('users', ['setSince', 'setTextSearch']),
+    ...mapActions('users', ['fetchUsers']),
+    ...mapMutations('users', ['setSince']),
     searchUsers() {
       this.setSince(0)
-      this.setTextSearch(this.text)
       this.fetchUsers()
-    },
-    createDebounce() {
-      if (this.timeout) clearTimeout(this.timeout)
-
-      if (this.text.length < 4) return
-      this.timeout = setTimeout(this.searchUsers, 1000)
     },
   },
 }

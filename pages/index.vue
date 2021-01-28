@@ -2,25 +2,24 @@
   <main>
     <img src="/images/logo.svg" width="140px" alt="Github Logo" />
     <h1>GitSearch</h1>
-    <SearchInput v-model="textSearch" />
+    <SearchInput />
     <div class="row">
-      <Button to="/users">Ver todos</Button>
-      <Button :to="`/users/${textSearch}`" color="secondary">Buscar</Button>
+      <Button to="/users" @click.native="setTextSearch('')">Ver todos</Button>
+      <Button to="/users" color="secondary">Buscar</Button>
     </div>
   </main>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-  data() {
-    return {
-      textSearch: '',
-    }
-  },
   head() {
     return {
       title: 'GitSearch',
     }
+  },
+  methods: {
+    ...mapMutations('users', ['setTextSearch']),
   },
 }
 </script>
