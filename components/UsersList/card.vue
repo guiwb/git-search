@@ -1,5 +1,5 @@
 <template>
-  <n-link :to="`/user/${user.login}`">
+  <n-link :to="`/users/${user.login}`">
     <img :src="user.avatar_url" :alt="user.login" />
     <h1 v-text="user.login" />
   </n-link>
