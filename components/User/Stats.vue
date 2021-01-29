@@ -34,6 +34,7 @@ export default {
 <style lang="scss" scoped>
 section {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
@@ -42,6 +43,12 @@ section {
   width: calc(100% - 40px);
   padding: 0 20px;
   margin-top: 28px;
+
+  @media ($desktop) {
+    width: 300px;
+    margin-left: auto;
+    padding-left: 0;
+  }
 
   > div {
     text-align: center;

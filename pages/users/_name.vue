@@ -2,7 +2,6 @@
   <section>
     <div class="content">
       <Profile :user="user" />
-      <Stats :user="user" />
 
       <div class="tabs">
         <div
@@ -34,7 +33,7 @@ export default {
     Projects,
     About,
   },
-  layout: 'container',
+  layout: 'profile',
   async asyncData({ params, $http }) {
     const user = await $http.$get(`users/${params.name}`)
     return { user }
@@ -60,44 +59,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  margin: 0 10px;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .content {
+  .tabs {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 50px;
+    margin-top: 30px;
 
-    .tabs {
-      display: flex;
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 50px;
-      margin-top: 30px;
+    > div {
+      flex: 1;
+      text-align: center;
+      line-height: 50px;
+      background-color: $blue100;
+      color: black;
+      font-size: 16px;
+      font-weight: 500;
 
-      > div {
-        flex: 1;
-        text-align: center;
-        line-height: 50px;
-        background-color: $blue100;
-        color: black;
-        font-size: 16px;
-        font-weight: 500;
+      &:first-child {
+        border-right: 1px solid $blue200;
+      }
 
-        &:first-child {
-          border-right: 1px solid $blue200;
-        }
-
-        &.active {
-          border-bottom: 3px solid $blue300;
-        }
+      &.active {
+        border-bottom: 3px solid $blue300;
       }
     }
+  }
 
-    .tab-content {
-      width: calc(100% - 40px);
-    }
+  .tab-content {
+    width: calc(100% - 40px);
   }
 }
 </style>
