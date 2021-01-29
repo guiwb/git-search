@@ -2,37 +2,15 @@
   <section>
     <div class="content">
       <Profile :user="user" />
-
-      <div class="tabs">
-        <div
-          :class="{ active: activeTab === 'About' }"
-          @click="activeTab = 'About'"
-        >
-          Sobre
-        </div>
-        <div
-          :class="{ active: activeTab === 'Projects' }"
-          @click="activeTab = 'Projects'"
-        >
-          Projetos
-        </div>
-      </div>
-
-      <component :is="activeTab" :user="user" class="tab-content" />
+      <Tabs :user="user" />
     </div>
   </section>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-import Projects from '../../components/User/Projects'
-import About from '../../components/User/About'
 
 export default {
-  components: {
-    Projects,
-    About,
-  },
   layout: 'profile',
   async asyncData({ params, $http }) {
     const user = await $http.$get(`users/${params.name}`)
@@ -41,7 +19,6 @@ export default {
   data() {
     return {
       title: 'Perfil',
-      activeTab: 'About',
     }
   },
   head() {
@@ -57,42 +34,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .tabs {
-    display: flex;
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 50px;
-    margin-top: 30px;
-
-    > div {
-      flex: 1;
-      text-align: center;
-      line-height: 50px;
-      background-color: $blue100;
-      color: black;
-      font-size: 16px;
-      font-weight: 500;
-
-      &:first-child {
-        border-right: 1px solid $blue200;
-      }
-
-      &.active {
-        border-bottom: 3px solid $blue300;
-      }
-    }
-  }
-
-  .tab-content {
-    width: calc(100% - 40px);
-  }
-}
-</style>

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import getLanguageColor from '../../../helpers/languageColors'
+import getLanguageColor from '../../../../helpers/languageColors'
 
 export default {
   filters: {
