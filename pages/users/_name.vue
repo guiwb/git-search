@@ -2,34 +2,8 @@
   <section>
     <Navbar :title="title" />
     <div class="content">
-      <div class="cover"></div>
-      <img class="profile-picture" :src="user.avatar_url" :alt="user.login" />
-      <h1 v-text="user.name" />
-
-      <h4>
-        <img src="/images/user.svg" height="10px" :alt="user.login" />
-        {{ user.login }}
-      </h4>
-
-      <div class="stats">
-        <div>
-          <img src="/images/following.svg" width="9px" alt="Seguindo" />
-          <span>{{ user.following }}</span>
-          <div>Seguindo</div>
-        </div>
-
-        <div>
-          <img src="/images/projects.svg" width="20px" alt="Projetos" />
-          <span>{{ user.public_repos }}</span>
-          <div>Projetos</div>
-        </div>
-
-        <div>
-          <img src="/images/followers.svg" width="20px" alt="Seguidores" />
-          <span>{{ user.followers }}</span>
-          <div>Seguidores</div>
-        </div>
-      </div>
+      <Profile :user="user" />
+      <Stats :user="user" />
 
       <div class="tabs">
         <div
@@ -86,54 +60,6 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .cover {
-      width: 100%;
-      height: 145px;
-      background: url('../../static/images/cover.png') no-repeat center;
-      background-size: cover;
-      border-radius: 8px;
-    }
-
-    .profile-picture {
-      width: 120px;
-      height: 120px;
-      border-radius: 120px;
-      object-fit: cover;
-      object-position: center;
-      border: 5px solid $blue200;
-      margin-top: -80px;
-    }
-
-    h1 {
-      font-size: 24px;
-      font-weight: 600;
-      color: $purple400;
-      margin: 10px 0;
-    }
-
-    h4 {
-      font-size: 16px;
-      font-weight: 400;
-      color: $gray400;
-      margin: 0;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      font-weight: 600;
-      color: $purple400;
-      width: calc(100% - 40px);
-      padding: 0 20px;
-      margin-top: 28px;
-
-      > div {
-        text-align: center;
-      }
-    }
 
     .tabs {
       display: flex;

@@ -57,6 +57,7 @@ section {
     font-weight: 600;
     color: $purple400;
     margin: 10px 0;
+    word-break: break-all;
 
     img {
       margin-right: 10px;
