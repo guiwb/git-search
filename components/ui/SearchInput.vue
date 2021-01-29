@@ -51,7 +51,7 @@ input {
   height: 35px;
   border-radius: 4px;
   padding: 0 10px 0 40px;
-  width: calc(100% - 50px);
+  width: calc(100% - 52px);
   margin-bottom: 10px;
   background: url('../../static/images/search.svg') no-repeat 10px;
 }

@@ -45,7 +45,7 @@ nav {
     align-items: center;
     font-size: 20px;
     font-weight: bold;
-    width: 780px;
+    width: 860px;
 
     img {
       margin-right: 5px;
@@ -57,6 +57,9 @@ nav {
   }
 
   .mobile {
+    display: flex;
+    align-items: center;
+
     h1 {
       font-size: 14px;
       font-weight: 600;

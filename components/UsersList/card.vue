@@ -40,6 +40,12 @@ a {
     object-fit: cover;
     object-position: center;
     border: 5px solid $gray100;
+
+    @media ($desktop) {
+      height: 100px;
+      width: 100px;
+      border-radius: 100px;
+    }
   }
 
   h1 {
@@ -54,6 +60,9 @@ a {
     @media ($desktop) {
       margin-left: 0;
       margin-bottom: 0;
+      font-size: 20px;
+      text-align: center;
+      width: 134px;
     }
   }
 }
