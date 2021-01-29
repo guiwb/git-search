@@ -20,4 +20,9 @@ export default {
     const { id: newSince } = res[res.length - 1]
     commit('setSince', newSince)
   },
+  resetUsers({ commit }) {
+    commit('setUsers', [])
+    commit('setPage', 1)
+    commit('setSince', 0)
+  },
 }

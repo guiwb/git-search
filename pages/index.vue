@@ -4,22 +4,42 @@
     <h1>GitSearch</h1>
     <SearchInput />
     <div class="row">
-      <Button to="/users" @click.native="setTextSearch('')">Ver todos</Button>
-      <Button to="/users" color="secondary">Buscar</Button>
+      <Button @click="seeAll()">Ver todos</Button>
+      <Button color="secondary" @click="search">Buscar</Button>
     </div>
   </main>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions, mapState } from 'vuex'
 export default {
   head() {
     return {
       title: 'GitSearch',
     }
   },
+  computed: {
+    ...mapState('users', ['textSearch']),
+  },
   methods: {
     ...mapMutations('users', ['setTextSearch']),
+    ...mapActions('users', ['resetUsers']),
+    search() {
+      if (!this.textSearch)
+        return this.$toast.error('Você precisa informar um texto de busca!')
+      else if (this.textSearch.length < 4)
+        return this.$toast.error(
+          'O texto de busca deve ter mais que 3 caracteres!'
+        )
+
+      this.resetUsers()
+      this.$router.push('/users')
+    },
+    seeAll() {
+      this.setTextSearch('')
+      this.resetUsers()
+      this.$router.push('/users')
+    },
   },
 }
 </script>
