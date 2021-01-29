@@ -13,11 +13,10 @@
 
   @media ($desktop) {
     background-color: white;
-    padding: 0 80px;
-    min-height: 100vh;
+    padding: 40px;
     width: 700px;
     margin: 0 auto;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 20px -3px rgba(0, 0, 0, 0.1);
   }
 }
 </style>
