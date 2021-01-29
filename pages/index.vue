@@ -63,7 +63,7 @@ main {
     width: 100%;
     display: flex;
 
-    > a {
+    > button {
       flex: 1;
 
       &:first-child {

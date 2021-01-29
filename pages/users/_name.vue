@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Navbar :title="title" />
     <div class="content">
       <Profile :user="user" />
       <Stats :user="user" />
@@ -26,6 +25,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import Projects from '../../components/User/Projects'
 import About from '../../components/User/About'
 
@@ -34,6 +34,7 @@ export default {
     Projects,
     About,
   },
+  layout: 'container',
   async asyncData({ params, $http }) {
     const user = await $http.$get(`users/${params.name}`)
     return { user }
@@ -48,6 +49,12 @@ export default {
     return {
       title: this.title,
     }
+  },
+  mounted() {
+    this.setTitle(this.title)
+  },
+  methods: {
+    ...mapMutations('users', ['setTitle']),
   },
 }
 </script>

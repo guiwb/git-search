@@ -24,6 +24,15 @@ a {
   border-bottom: 1px solid $gray200;
   padding: 10px 0;
 
+  @media ($desktop) {
+    flex-direction: column;
+    border-right: 1px solid $gray200;
+    border-top: 1px solid $gray200;
+    border-bottom: 0;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 30px 0;
+  }
+
   img {
     height: 50px;
     width: 50px;
@@ -41,6 +50,11 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @media ($desktop) {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
   }
 }
 </style>

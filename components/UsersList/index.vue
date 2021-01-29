@@ -33,5 +33,12 @@ export default {
 .list {
   display: flex;
   flex-direction: column;
+
+  @media ($desktop) {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid $gray200;
+    border-left: 1px solid $gray200;
+  }
 }
 </style>

@@ -14,4 +14,7 @@ export default {
   setPage(state, payload) {
     state.page = payload
   },
+  setTitle(state, payload) {
+    state.title = payload
+  },
 }

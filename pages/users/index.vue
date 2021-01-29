@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Navbar :title="title" />
     <SearchInput with-debounce @search="searchUsers" />
     <UsersList :users="users" />
   </section>
@@ -10,6 +9,7 @@
 import { mapActions, mapState, mapMutations } from 'vuex'
 
 export default {
+  layout: 'container',
   data() {
     return {
       title: 'Lista de usuários',
@@ -24,6 +24,7 @@ export default {
     ...mapState('users', ['users']),
   },
   mounted() {
+    this.setTitle(this.title)
     if (!this.users.length) this.fetchUsers()
     document.addEventListener('scroll', this.checkScroll)
   },
@@ -32,7 +33,7 @@ export default {
   },
   methods: {
     ...mapActions('users', ['fetchUsers']),
-    ...mapMutations('users', ['setSince']),
+    ...mapMutations('users', ['setSince', 'setTitle']),
     searchUsers() {
       this.setSince(0)
       this.fetchUsers()
@@ -46,9 +47,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-section {
-  margin: 0 10px;
-}
-</style>
