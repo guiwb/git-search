@@ -10,7 +10,9 @@
 
     <div v-if="user.blog">
       <img src="/images/site.svg" width="18px" alt="site" />
-      {{ user.blog }}
+      <a :href="user.blog" target="_blank" rel="noopener noreferrer">{{
+        user.blog
+      }}</a>
     </div>
   </section>
 </template>
