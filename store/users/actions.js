@@ -1,10 +1,10 @@
 export default {
   fetchUsers({ state, dispatch }) {
-    state.textSearch ? dispatch('getUsersByName') : dispatch('getUsers')
+    state.textSearch ? dispatch('getUsersByLogin') : dispatch('getUsers')
   },
-  async getUsersByName({ state, commit }) {
+  async getUsersByLogin({ state, commit }) {
     const res = await this.$http.$get(
-      `search/users?q=${state.textSearch}&per_page=${state.itemsPerPage}&page=${state.page}`
+      `search/users?q=${state.textSearch}+in:login&per_page=${state.itemsPerPage}&page=${state.page}`
     )
 
     commit('setUsers', res.items)
