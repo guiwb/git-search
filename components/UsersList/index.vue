@@ -1,7 +1,7 @@
 <template>
   <div v-if="!users.length" class="no-users">Nenhum usuário encontrado! ;(</div>
   <div v-else class="list">
-    <Card v-for="user in users" :key="user.login" :user="user" />
+    <Card v-for="(user, index) in users" :key="index" :user="user" />
   </div>
 </template>
 

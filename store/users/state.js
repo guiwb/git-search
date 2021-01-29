@@ -3,6 +3,6 @@ export default () => ({
   textSearch: '',
   since: 0,
   page: 1,
-  itemsPerPage: 10,
+  itemsPerPage: 20,
   title: '',
 })
