@@ -41,7 +41,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxt/http'],
+  modules: ['@nuxtjs/style-resources', '@nuxt/http', '@nuxtjs/toast'],
 
   http: {
     baseURL: 'https://api.github.com/',
