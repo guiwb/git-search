@@ -38,6 +38,7 @@ a {
     font-weight: 600;
     margin-left: 20px;
     color: $purple400;
+    word-break: break-all;
   }
 }
 </style>
