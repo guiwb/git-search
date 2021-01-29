@@ -36,7 +36,7 @@ export default {
     createDebounce() {
       if (this.timeout) clearTimeout(this.timeout)
 
-      if (this.textSearch.length < 4) return
+      if (this.textSearch && this.textSearch.length < 4) return
       this.timeout = setTimeout(() => this.$emit('search'), 1000)
     },
   },
