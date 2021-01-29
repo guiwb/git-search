@@ -24,8 +24,7 @@ export default {
     ...mapState('users', ['users']),
   },
   mounted() {
-    this.fetchUsers()
-
+    if (!this.users.length) this.fetchUsers()
     document.addEventListener('scroll', this.checkScroll)
   },
   destroyed() {
